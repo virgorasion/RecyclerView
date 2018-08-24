@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapterMakanan = new AdapterMakanan(listMakanan, new AdapterMakanan.ClickListerner() {
             @Override
-            public void onClick(ModelMakanan modelMakanan, View view) {
+            public void onClick(ModelMakanan modelMakanan) {
                 Intent i = new Intent(MainActivity.this,DataPesananActivity.class);
                 i.putExtra("gambarMakanan", modelMakanan.getGambarMakanan());
                 i.putExtra("namaMakanan", modelMakanan.getNamaMakanan());

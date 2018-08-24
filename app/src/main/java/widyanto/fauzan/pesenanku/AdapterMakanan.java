@@ -64,13 +64,13 @@ public class AdapterMakanan extends RecyclerView.Adapter<AdapterMakanan.MakananH
                 @Override
                 public void onClick(View v) {
                     if (clickListerner != null){
-                        clickListerner.onClick(modelMakanan, v);
+                        clickListerner.onClick(modelMakanan);
                     }
                 }
             });
         }
     }
     interface ClickListerner {
-        public void onClick(ModelMakanan modelMakanan, View view);
+        public void onClick(ModelMakanan modelMakanan);
     }
 }
