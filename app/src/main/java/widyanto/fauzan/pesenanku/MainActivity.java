@@ -1,6 +1,8 @@
 package widyanto.fauzan.pesenanku;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -66,7 +68,19 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK){
             if (data != null){
-                Toast.makeText(MainActivity.this, data.getStringExtra("dataPesanan"), Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                builder.setMessage("Terimakasih, Pesanan Anda Akan Segera Diantar");
+                builder.setPositiveButton("Oke", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        closeOptionsMenu();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
             }
         }
     }
